@@ -1,17 +1,15 @@
-该项目是SpringBoot的2.1.0.RELEASE版本的带中文的源码分析项目，中文注释会随着每篇SpringBoot的源码分析文章的推出而更新，中文注释持续更新中...
-
 【**源码笔记**】专注于Java后端系列框架的源码分析。若觉得源码分析文章不错，欢迎Start哦。
 
-================SpringBoot源码分析持续更新中====================
+================SpringBoot源码分析持续更新中...====================
 * SpringBoot源码分析专题：https://github.com/yuanmabiji/Java-SourceCode-Blogs/tree/master/SpringBoot
 * SpringBoot源码解析项目（带中文注释）：https://github.com/yuanmabiji/spring-boot-2.1.0.RELEASE
 
-================Spring5源码分析持续更新中====================
+================Spring5源码分析持续更新中...====================
 * Spring5源码分析专题：https://github.com/yuanmabiji/Java-SourceCode-Blogs/tree/master/Spring
 * Spring5源码解析项目（带中文注释）：待提供
 
 
-================JDK源码分析持续更新中====================
+================JDK源码分析持续更新中...====================
 * JDK源码分析专题：https://github.com/yuanmabiji/Java-SourceCode-Blogs/tree/master/JDK
 * JDK源码解析项目（带中文注释）：待提供
 
@@ -28,12 +26,14 @@
 * Seata
 * ......
 
+--------------------------------------------
+微信搜：
 
-**公众号**
+**公众号：源码笔记**
 
 ![img](https://common-ymbj.oss-cn-beijing.aliyuncs.com/%E6%BA%90%E7%A0%81%E7%AC%94%E8%AE%B0%E5%85%AC%E4%BC%97%E5%8F%B7%E4%BA%8C%E7%BB%B4%E7%A0%81.PNG)
 
-**联系我**
+**联系我：hardwork-persistence**
 
 ###### 
 
