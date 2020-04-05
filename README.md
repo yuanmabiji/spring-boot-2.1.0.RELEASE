@@ -17,7 +17,7 @@
 9. 持续更新中...
 
 
-更多源码分析文章请跳转至：https://github.com/yuanmabiji/Java-SourceCode-Blogs
+* 更多源码分析文章请跳转至：https://github.com/yuanmabiji/Java-SourceCode-Blogs
 
 
 ================**TODO LIST**====================
