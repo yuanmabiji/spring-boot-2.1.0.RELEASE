@@ -4,7 +4,11 @@ import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEven
 import org.springframework.boot.context.event.ApplicationStartingEvent;
 import org.springframework.context.ApplicationListener;
 
-public class CustomListener implements ApplicationListener<ApplicationEnvironmentPreparedEvent> {
+/**
+ * /自定义一个监听器监听SpringBoot的生命周期事件（注意不是Spring的内置生命周期事件哈）
+ * 注意若是SpringBoot自定义事件监听器则需要通过SpringBoot的SPI机制来加载到相应集合，而不是通过@Component来加载。
+ */
+public class CustomSpringBootListener implements ApplicationListener<ApplicationEnvironmentPreparedEvent> {
 
 	/**
 	 * Handle an application event.
