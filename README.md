@@ -14,7 +14,7 @@
 6. [SpringBoot内置的各种Starter是怎样构建的？ SpringBoot源码（六）](https://github.com/yuanmabiji/Java-SourceCode-Blogs/blob/master/SpringBoot/6%20SpringBoot%E5%86%85%E7%BD%AE%E7%9A%84%E5%90%84%E7%A7%8DStarter%E6%98%AF%E6%80%8E%E6%A0%B7%E6%9E%84%E5%BB%BA%E7%9A%84%EF%BC%9F%20%20SpringBoot%E6%BA%90%E7%A0%81%EF%BC%88%E5%85%AD%EF%BC%89.md)
 7. [SpringBoot的启动流程是怎样的？SpringBoot源码（七）](https://github.com/yuanmabiji/Java-SourceCode-Blogs/blob/master/SpringBoot/7%20SpringBoot%E7%9A%84%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9FSpringBoot%E6%BA%90%E7%A0%81%EF%BC%88%E4%B8%83%EF%BC%89.md)
 8. [SpringApplication对象是如何构建的？ SpringBoot源码（八）](https://github.com/yuanmabiji/Java-SourceCode-Blogs/blob/master/SpringBoot/8%20SpringApplication%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E7%9A%84%EF%BC%9F%20SpringBoot%E6%BA%90%E7%A0%81%EF%BC%88%E5%85%AB%EF%BC%89.md)
-9. 持续更新中...
+9. **持续更新中...**
 
 
 * 更多源码分析文章请跳转至：https://github.com/yuanmabiji/Java-SourceCode-Blogs
