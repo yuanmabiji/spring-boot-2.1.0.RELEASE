@@ -85,7 +85,7 @@
 				<module>spring-boot-project</module>
 				<!-- Samples are built via the invoker plugin -->
 				<!--新增spring-boot-samples模块-->
-				<module>spring-boot-samples</module>
+				<!--<module>spring-boot-samples</module>-->
 				<module>spring-boot-samples-invoker</module>
 				<module>spring-boot-tests</module>
 			</modules>
