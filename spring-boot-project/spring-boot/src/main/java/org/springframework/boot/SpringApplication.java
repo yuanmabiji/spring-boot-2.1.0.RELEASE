@@ -364,13 +364,7 @@ public class SpringApplication {
 			// 7）》》》》》发射【ApplicationPreparedEvent】事件，标志Context容器已经准备完成
 			prepareContext(context, environment, listeners, applicationArguments,
 					printedBanner);
-			// 这个语句是我自己加上去的，spring容器刷新完毕后用来打印容器中加载的bean信息
-			String[] definitionNames = context.getBeanDefinitionNames();
-			System.out.println("=======================1111=============================");
-			for (String name : definitionNames) {
-				System.out.println(name);
-			}
-			System.out.println("=======================1111=============================");
+
 			// 【7】刷新容器，这一步至关重要，以后会在分析Spring源码时详细分析，主要做了以下工作：
 			// 1）在context刷新前做一些准备工作，比如初始化一些属性设置，属性合法性校验和保存容器中的一些早期事件等；
 			// 2）让子类刷新其内部bean factory,注意SpringBoot和Spring启动的情况执行逻辑不一样
@@ -387,13 +381,7 @@ public class SpringApplication {
 			// 11）完成容器bean factory的初始化，并初始化所有剩余的单例bean。这一步非常重要，一些bean postprocessor会在这里调用。
 			// 12）完成容器的刷新工作，并且调用生命周期处理器的onRefresh()方法，并且发布ContextRefreshedEvent事件
 			refreshContext(context);
-			// 这个语句是我自己加上去的，spring容器刷新完毕后用来打印容器中加载的bean信息
-/*			String[] definitionNames = context.getBeanDefinitionNames();*/
-			System.out.println("=======================2222=============================");
-				for (String name : definitionNames) {
-					System.out.println(name);
-				}
-			System.out.println("=======================2222=============================");
+
 			// 【8】执行刷新容器后的后置处理逻辑，注意这里为空方法
 			afterRefresh(context, applicationArguments);
 			// 停止stopWatch计时
@@ -403,25 +391,11 @@ public class SpringApplication {
 				new StartupInfoLogger(this.mainApplicationClass)
 						.logStarted(getApplicationLog(), stopWatch);
 			}
-			System.out.println("=======================3333=============================");
-			for (String name : definitionNames) {
-				System.out.println(name);
-			}
-			System.out.println("=======================3333=============================");
+
 			// 》》》》》发射【ApplicationStartedEvent】事件，标志spring容器已经刷新，此时所有的bean实例都已经加载完毕
 			listeners.started(context);
-			System.out.println("=======================4444=============================");
-			for (String name : definitionNames) {
-				System.out.println(name);
-			}
-			System.out.println("=======================4444=============================");
 			// 【9】调用ApplicationRunner和CommandLineRunner的run方法，实现spring容器启动后需要做的一些东西比如加载一些业务数据等
 			callRunners(context, applicationArguments);
-			System.out.println("=======================5555=============================");
-			for (String name : definitionNames) {
-				System.out.println(name);
-			}
-			System.out.println("=======================5555=============================");
 
 		}
 		// 【10】若启动过程中抛出异常，此时用FailureAnalyzers来报告异常
@@ -440,17 +414,22 @@ public class SpringApplication {
 			handleRunFailure(context, ex, exceptionReporters, null);
 			throw new IllegalStateException(ex);
 		}
+
+
+		// 这个语句是我自己加上去的，spring容器刷新完毕后用来打印容器中加载的bean信息
 		String[] definitionNames = context.getBeanDefinitionNames();
 		/** TODO
 		 * **思考**： SpringBoot的`run`方法会调用`prepareContext`会加载一些`bean`，
 		 * 同时，在调用`AbstractApplicationContext`的`refresh`方法时也会加载一些`bean`，这些加载的`bean`有什么不同？
 		 */
 		// TODO 只有在这一步才会打印剩下的bean，不是在prepareEnvironment加载的bean？？？
-		System.out.println("=======================6666=============================");
+		System.out.println("=======================下面开始打印容器中所有的bean name=============================");
 		for (String name : definitionNames) {
 			System.out.println(name);
 		}
-		System.out.println("=======================6666=============================");
+		System.out.println("=======================打印容器中所有的bean name结束=============================");
+
+
 		// 【11】最终返回容器
 		return context;
 	}
