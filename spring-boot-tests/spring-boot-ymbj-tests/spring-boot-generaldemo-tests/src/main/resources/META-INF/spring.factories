@@ -1,3 +1,4 @@
 # Auto Configure
 org.springframework.context.ApplicationListener=\
-com.ymbj.customlistener.CustomSpringBootListener
+com.ymbj.customlistener.CustomSpringBootListener,\
+com.ymbj.customlistener.CustomSpringBootListener2

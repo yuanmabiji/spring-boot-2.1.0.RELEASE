@@ -53,17 +53,21 @@ public class DelegatingApplicationListener
 
 	@Override
 	public void onApplicationEvent(ApplicationEvent event) {
+		// 这里监听ApplicationEnvironmentPreparedEvent事件，说明环境变量已经准备好，
+		// 然后再把配置文件配置的context.listener.classes监听器加载出来放到multicaster对象的Listerner集合中
 		if (event instanceof ApplicationEnvironmentPreparedEvent) {
 			List<ApplicationListener<ApplicationEvent>> delegates = getListeners(
 					((ApplicationEnvironmentPreparedEvent) event).getEnvironment());
 			if (delegates.isEmpty()) {
 				return;
 			}
+			// 这里新建一个SimpleApplicationEventMulticaster对象来派发事件
 			this.multicaster = new SimpleApplicationEventMulticaster();
 			for (ApplicationListener<ApplicationEvent> listener : delegates) {
 				this.multicaster.addApplicationListener(listener);
 			}
 		}
+		// 这里直接委托配置文件配置的监听器来监听该事件即将事件委托给通过context.listener.classes配置的自定义的监听器处理。
 		if (this.multicaster != null) {
 			this.multicaster.multicastEvent(event);
 		}
