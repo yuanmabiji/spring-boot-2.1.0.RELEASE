@@ -1,4 +1,4 @@
-package com.ymbj.autoconfig;
+package com.ymbj.customlistener;
 
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
 import org.springframework.boot.context.event.ApplicationStartingEvent;
