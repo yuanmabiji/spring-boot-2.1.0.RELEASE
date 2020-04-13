@@ -512,7 +512,10 @@ public class SpringApplication {
 	}
 
 	private SpringApplicationRunListeners getRunListeners(String[] args) {
+		// 构造一个由SpringApplication.class和String[].class组成的types
 		Class<?>[] types = new Class<?>[] { SpringApplication.class, String[].class };
+		// 1) 根据SpringApplicationRunListener接口去spring.factories配置文件中加载其SPI扩展实现类
+		// 2) 构建一个SpringApplicationRunListeners对象并返回
 		return new SpringApplicationRunListeners(logger, getSpringFactoriesInstances(
 				SpringApplicationRunListener.class, types, this, args));
 	}
