@@ -44,7 +44,10 @@ class SpringApplicationRunListeners {
 	}
 
 	public void starting() {
+		// 遍历listeners集合，这里实质取出的就是刚才从spring.factories中取出的SPI实现类EventPublishingRunListener
+		// 而EventPublishingRunListener对象承担了SpringBoot启动过程中负责广播不同的生命周期事件
 		for (SpringApplicationRunListener listener : this.listeners) {
+			// 调用EventPublishingRunListener的starting方法来广播ApplicationStartingEvent事件
 			listener.starting();
 		}
 	}
