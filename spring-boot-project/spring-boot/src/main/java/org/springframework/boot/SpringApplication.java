@@ -462,9 +462,9 @@ public class SpringApplication {
 			ApplicationArguments applicationArguments) {
 		// Create and configure the environment
 		ConfigurableEnvironment environment = getOrCreateEnvironment();
-		configureEnvironment(environment, applicationArguments.getSourceArgs());
-		listeners.environmentPrepared(environment);
-		bindToSpringApplication(environment);
+		configureEnvironment(environment, applicationArguments.getSourceArgs()); // 这里为之前创建的environment配置一些命令行参数形式的环境变量
+		listeners.environmentPrepared(environment); // 利用事件监听机制来为environment环境变量配置application.properties中的环境变量或@{}形式的环境变量
+		bindToSpringApplication(environment); // TODO 将environment绑定在SpringApplication，后续用来干嘛呢？
 		if (!this.isCustomEnvironment) {
 			// TODO 这里什么情况下需要进行转换？
 			environment = new EnvironmentConverter(getClassLoader())

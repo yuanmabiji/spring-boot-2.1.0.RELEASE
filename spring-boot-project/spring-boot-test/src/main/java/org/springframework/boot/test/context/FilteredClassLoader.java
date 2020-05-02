@@ -28,7 +28,7 @@ import org.springframework.core.io.ClassPathResource;
 /**
  * Test {@link URLClassLoader} that can filter the classes and resources it can load.
  *
- * @author Andy Wilkinson
+ * @author Andy  Wilkinson
  * @author Stephane Nicoll
  * @author Phillip Webb
  * @author Roy Jacobs
