@@ -195,6 +195,10 @@ public class LoggingApplicationListener implements GenericApplicationListener {
 		if (event instanceof ApplicationStartingEvent) {
 			onApplicationStartingEvent((ApplicationStartingEvent) event);
 		}
+		// 注意加载application.properties配置文件属性也是由ApplicationEnvironmentPreparedEvent事件触发ConfigFileApplicationListener监听器来加载的
+		// 而LoggingApplicationListener也是监听ApplicationEnvironmentPreparedEvent这个事件，而此时application.properties配置文件配置已经加载完毕
+		// 因此这里注意不同监听器同样是监听onApplicationEnvironmentPreparedEvent事件，而不同监听器却有执行顺序的，这是由spring.factories配置文件配置加载后，
+		// 还要执行AnnotationAwareOrderComparator.sort(instances);语句进行排序，TODO 【思考】监听器的排序规则是在哪里设置的呢？？？
 		else if (event instanceof ApplicationEnvironmentPreparedEvent) {
 			onApplicationEnvironmentPreparedEvent(
 					(ApplicationEnvironmentPreparedEvent) event);
