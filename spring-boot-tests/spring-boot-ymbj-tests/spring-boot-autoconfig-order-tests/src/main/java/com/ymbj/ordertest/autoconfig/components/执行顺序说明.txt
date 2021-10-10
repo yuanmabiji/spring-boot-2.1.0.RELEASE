@@ -1,0 +1,33 @@
+执行顺序输出为：
+=========InScanAutoConfigurationBean============
+=========naturalorder.AutoConfiguration1 Constructor============
+=========naturalorder.AutoConfigurationBean3============
+=========naturalorder.AutoConfigurationBean1============
+=========naturalorder.ZAutoConfiguration Constructor============
+=========naturalorder.ZAutoConfigurationBean============
+=========naturalorder.AutoConfiguration2 Constructor============
+=========naturalorder.AutoConfigurationBean2============
+=========naturalorder.AutoConfigurationBean22============
+=========naturalorder.ZAutoConfigurationBean2============
+
+
+自动配置类加载构造的顺序为：AutoConfiguration1->ZAutoConfiguration->AutoConfiguration2
+结论：自动配置类的加载创建顺序除了受自然排序影响外，还受自动配置类某个bean @Autowire的影响
+
+
+
+bean创建顺序：
+AutoConfigurationBean3->AutoConfigurationBean1->ZAutoConfigurationBean
+->AutoConfigurationBean2->AutoConfigurationBean22->ZAutoConfigurationBean2
+
+结论基本跟anno注解排序相同，唯一与@DependsOn注解不同的就是AutoConfigurationBean1有个属性是ZAutoConfigurationBean(@Autowired)，
+因此需要先创建AutoConfigurationBean1，再创建ZAutoConfigurationBean
+0，自动配置类的排序：先自然排序，然后@AutoConfigureOrder排序，最后@AutoConfigureBefore和@AutoConfigureAfter
+1，同一个自动配置类里面的bean按照文本上下关系从上往下创建，跟bean name的自然排序无关；
+2，正常情况下，不同自动配置类按照自动配置类之间的优先级加载创建，里面的bean也是逐个创建；
+3，若高优先级自动配置类A里面的一个beanA依赖于低优先级自动配置类C里面的一个beanC,
+   此时还有一个优先级居于自动配置类A和自动配置类C之间的自动配置类B，此时仅仅会先创建beanC
+   ,再创建beanA,仅此而已，然后继续创建自动配置类A的其他bean,接着创建自动配置类B的bean，
+   最后再创建自动配置类C除beanC之外的其他bean，虽然自动配置类C先于自动配置类B先加载创建，
+   但谁叫自动配置类C的优先级低于自动配置类B呢
+4，InScanAutoConfiguration这个配置类因为跟MainApplication在同一个package下，所以能够被spring扫描到，因此加载创建是先于spring.factories的自动配置类
