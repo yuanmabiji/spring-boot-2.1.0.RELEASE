@@ -1,4 +1,4 @@
-package com.ymbj.ordertest.autoconfig.naturalorder;
+package com.ymbj.ordertest.autoconfig.naturalorderrbean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

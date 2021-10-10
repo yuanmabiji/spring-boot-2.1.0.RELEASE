@@ -1,4 +1,4 @@
-package com.ymbj.hellowolrd.autoconfig;
+package com.ymbj.ordertest.hellowolrd.autoconfig;
 
 public class A {
 }

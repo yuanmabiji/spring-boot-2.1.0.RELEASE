@@ -1,4 +1,4 @@
-package com.ymbj.ordertest.autoconfig.naturalorder;
+package com.ymbj.ordertest.autoconfig.naturalorderrbean;
 
 public class AutoConfigurationBean22 {
 }

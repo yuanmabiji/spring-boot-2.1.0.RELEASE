@@ -1,4 +1,4 @@
-package com.ymbj.condition;
+package com.ymbj.ordertest.condition;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

@@ -1,33 +1,29 @@
-执行顺序输出为：
+=========ComponentBean============
+=========AService1============
+=========AService2============
+=========Component1============
+=========Component2============
+=========ZComponent============
+=========ZService============
+=========ZZController1============
+=========ZZController2============
+=========ZZZController============
+=========ComponentScanBean2============
+=========ComponentScanBean1============
 =========InScanAutoConfigurationBean============
-=========naturalorder.AutoConfiguration1 Constructor============
-=========naturalorder.AutoConfigurationBean3============
-=========naturalorder.AutoConfigurationBean1============
-=========naturalorder.ZAutoConfiguration Constructor============
-=========naturalorder.ZAutoConfigurationBean============
-=========naturalorder.AutoConfiguration2 Constructor============
-=========naturalorder.AutoConfigurationBean2============
-=========naturalorder.AutoConfigurationBean22============
-=========naturalorder.ZAutoConfigurationBean2============
+=========annoorder.AnnoAutoConfiguration2 Constructor============
+=========annoorder.AutoConfigurationAnnoBean2============
+=========annoorder.AutoConfigurationAnnoBean22============
 
+结论：
+1，component组件（@Component,@Service和@Controller）扫描加载创建顺序为类名自然顺序；
+2，springboot扫描的component组件加载创建顺序优先于@Configuration配置类的@Bean，包括@Configuration配置类上的注解
+   @ComponentScan扫描的bean也是优先于@Configuration配置类中的@Bean创建
+3，springboot扫描的component组件创建顺序为首先是MainApplication的同级目录，然后再按包名自然排序扫描（待验证，猜测是这样）
+4，@Configuration配置类的bean加载创建顺序优先于外部自动配置类的
 
-自动配置类加载构造的顺序为：AutoConfiguration1->ZAutoConfiguration->AutoConfiguration2
-结论：自动配置类的加载创建顺序除了受自然排序影响外，还受自动配置类某个bean @Autowire的影响
-
-
-
-bean创建顺序：
-AutoConfigurationBean3->AutoConfigurationBean1->ZAutoConfigurationBean
-->AutoConfigurationBean2->AutoConfigurationBean22->ZAutoConfigurationBean2
-
-结论基本跟anno注解排序相同，唯一与@DependsOn注解不同的就是AutoConfigurationBean1有个属性是ZAutoConfigurationBean(@Autowired)，
-因此需要先创建AutoConfigurationBean1，再创建ZAutoConfigurationBean
-0，自动配置类的排序：先自然排序，然后@AutoConfigureOrder排序，最后@AutoConfigureBefore和@AutoConfigureAfter
-1，同一个自动配置类里面的bean按照文本上下关系从上往下创建，跟bean name的自然排序无关；
-2，正常情况下，不同自动配置类按照自动配置类之间的优先级加载创建，里面的bean也是逐个创建；
-3，若高优先级自动配置类A里面的一个beanA依赖于低优先级自动配置类C里面的一个beanC,
-   此时还有一个优先级居于自动配置类A和自动配置类C之间的自动配置类B，此时仅仅会先创建beanC
-   ,再创建beanA,仅此而已，然后继续创建自动配置类A的其他bean,接着创建自动配置类B的bean，
-   最后再创建自动配置类C除beanC之外的其他bean，虽然自动配置类C先于自动配置类B先加载创建，
-   但谁叫自动配置类C的优先级低于自动配置类B呢
-4，InScanAutoConfiguration这个配置类因为跟MainApplication在同一个package下，所以能够被spring扫描到，因此加载创建是先于spring.factories的自动配置类
+TODO:1，自己回到公司，验证下这些结论，特别是验证优先创建项目工程内的bean，再创建插件自动配置的bean,
+TODO:插件自动配置又是按照自然排序（没有@AutoConfigureOrder等注解情况下）；
+TODO:2,验证SqlSessionFactoryBean是在执行sql的情况下创建的，而不是@Autowire mapper时创建的；同时探索@Mapper的类是怎么加入spring容器的？
+TODO:3,按照自己总结的规律探索tcp插件自动配置类为何在先加载暴露端口，而Mybatis自动配置类在后呢？
+TODO:4,探究static关键字提升bean创建优先级？以及学习公众号A哥其他配置类的9篇文章

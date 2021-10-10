@@ -1,4 +1,4 @@
-package com.ymbj.autoconfig;
+package com.ymbj.ordertest.autoconfig;
 
 public interface ProfileService {
 }

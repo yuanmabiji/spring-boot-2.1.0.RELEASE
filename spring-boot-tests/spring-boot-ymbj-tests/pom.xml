@@ -14,7 +14,8 @@
 	<modules>
 		<module>spring-boot-generaldemo-tests</module>
 		<module>helloworld-spring-boot-starter</module>
-	</modules>
+        <module>spring-boot-autoconfig-order-tests</module>
+    </modules>
 
 	<dependencies>
 		<!-- Compile -->

@@ -1,4 +1,4 @@
-package com.ymbj.autoconfig;
+package com.ymbj.ordertest.autoconfig;
 
 public class TestProfileService implements ProfileService {
 }

@@ -18,7 +18,7 @@
 		<disable.checks>false</disable.checks>
 	</properties>
 	<modules>
-		<module>spring-boot-sample-ant</module>
+		<!--<module>spring-boot-sample-ant</module>-->
 		<module>spring-boot-sample-activemq</module>
 		<module>spring-boot-sample-actuator</module>
 		<module>spring-boot-sample-actuator-log4j2</module>

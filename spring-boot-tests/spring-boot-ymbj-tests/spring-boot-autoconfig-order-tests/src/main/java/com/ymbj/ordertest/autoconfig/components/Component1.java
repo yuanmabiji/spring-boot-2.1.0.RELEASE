@@ -1,10 +1,11 @@
 package com.ymbj.ordertest.autoconfig.components;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Service
-public class AService1 {
-	public AService1() {
-		System.out.println("=========AService1============");
+@Component
+public class Component1 {
+	public Component1() {
+		System.out.println("=========Component1============");
 	}
 }

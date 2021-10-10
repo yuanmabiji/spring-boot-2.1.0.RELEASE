@@ -1,14 +1,23 @@
 package com.ymbj.ordertest;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * InScanAutoConfiguration在MainApplication同一个package下，因此可以被扫描到
+ */
+@ComponentScan("com.ymbj.componentscanpackage2")
 @Configuration
-public class AutoConfigurationInScan {
+public class InScanAutoConfiguration {
+
+	public InScanAutoConfiguration() {
+		System.out.println("=========InScanAutoConfiguration============");
+	}
 
 	@Bean
-	public AutoConfigurationBean1 autoConfigurationBean1() {
-		System.out.println("=========AutoConfigurationBean1============");
-		return new AutoConfigurationBean1();
+	public InScanAutoConfigurationBean inScanAutoConfigurationBean() {
+		System.out.println("=========InScanAutoConfigurationBean============");
+		return new InScanAutoConfigurationBean();
 	}
 }

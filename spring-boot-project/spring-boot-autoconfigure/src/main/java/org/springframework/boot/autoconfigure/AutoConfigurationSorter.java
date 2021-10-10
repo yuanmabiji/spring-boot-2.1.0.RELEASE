@@ -55,15 +55,15 @@ class AutoConfigurationSorter {
 		AutoConfigurationClasses classes = new AutoConfigurationClasses(
 				this.metadataReaderFactory, this.autoConfigurationMetadata, classNames);
 		List<String> orderedClassNames = new ArrayList<>(classNames);
-		// Initially sort alphabetically
+		// Initially sort alphabetically 【1】首先对加载的自动配置类进行自然排序，注意，如果想用spring.factories中指定自动配置类的顺序是不起作用的，因为起码要进行一次自然排序
 		Collections.sort(orderedClassNames);
-		// Then sort by order 对@AutoConfigureOrder进行排序，其中getOrder()方法获取@AutoConfigureOrder的顺序数值
+		// Then sort by order 【2】然后对@AutoConfigureOrder进行排序，其中getOrder()方法获取@AutoConfigureOrder的顺序数值
 		orderedClassNames.sort((o1, o2) -> {
 			int i1 = classes.get(o1).getOrder();
 			int i2 = classes.get(o2).getOrder();
 			return Integer.compare(i1, i2);
 		});
-		// Then respect @AutoConfigureBefore @AutoConfigureAfter  对@AutoConfigureBefore @AutoConfigureAfter进行排序
+		// Then respect @AutoConfigureBefore @AutoConfigureAfter  【3】最后对@AutoConfigureBefore @AutoConfigureAfter进行排序
 		orderedClassNames = sortByAnnotation(classes, orderedClassNames);
 		return orderedClassNames;
 	}

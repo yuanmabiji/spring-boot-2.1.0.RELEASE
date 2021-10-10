@@ -1,7 +1,7 @@
-package com.ymbj.autoconfig;
+package com.ymbj.ordertest.autoconfig;
 
 
-import com.ymbj.hellowolrd.autoconfig.HelloWorldComponent;
+import com.ymbj.ordertest.hellowolrd.autoconfig.HelloWorldComponent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;

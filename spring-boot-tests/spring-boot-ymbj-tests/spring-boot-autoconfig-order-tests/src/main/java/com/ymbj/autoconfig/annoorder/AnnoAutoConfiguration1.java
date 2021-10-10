@@ -1,6 +1,7 @@
 package com.ymbj.autoconfig.annoorder;
 
-import com.ymbj.ordertest.autoconfig.annoorder.AutoConfigurationBean1;
+import com.ymbj.ordertest.autoconfig.annoorderbean.AutoConfigurationAnnoBean1;
+import com.ymbj.ordertest.autoconfig.annoorderbean.AutoConfigurationAnnoBean11;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,11 +14,20 @@ import org.springframework.core.Ordered;
  */
 @AutoConfigureOrder(Ordered.LOWEST_PRECEDENCE)
 @Configuration
-public class AutoConfiguration1 {
+public class AnnoAutoConfiguration1 {
+	public AnnoAutoConfiguration1() {
+		System.out.println("=========annoorder.AnnoAutoConfiguration1 Constructor============");
+	}
 
 	@Bean
-	public AutoConfigurationBean1 autoConfigurationBean1() {
-		System.out.println("=========annoorder.AutoConfigurationBean1============");
-		return new AutoConfigurationBean1();
+	public AutoConfigurationAnnoBean1 autoConfigurationAnnoBean1() {
+		System.out.println("=========annoorder.AutoConfigurationAnnoBean1============");
+		return new AutoConfigurationAnnoBean1();
+	}
+
+	@Bean
+	public AutoConfigurationAnnoBean11 autoConfigurationAnnoBean11() {
+		System.out.println("=========annoorder.AutoConfigurationAnnoBean11============");
+		return new AutoConfigurationAnnoBean11();
 	}
 }

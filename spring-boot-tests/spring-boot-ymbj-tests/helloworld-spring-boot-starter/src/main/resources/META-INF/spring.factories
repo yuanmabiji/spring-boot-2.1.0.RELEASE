@@ -1,3 +1,3 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.ymbj.hellowolrd.autoconfig.HelloWorldEnableAutoConfiguration
+com.ymbj.ordertest.hellowolrd.autoconfig.HelloWorldEnableAutoConfiguration

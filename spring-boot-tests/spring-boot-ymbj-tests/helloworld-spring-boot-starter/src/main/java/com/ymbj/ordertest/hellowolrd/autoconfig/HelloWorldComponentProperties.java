@@ -1,4 +1,4 @@
-package com.ymbj.hellowolrd.autoconfig;
+package com.ymbj.ordertest.hellowolrd.autoconfig;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

@@ -1,17 +1,26 @@
 package com.ymbj.autoconfig.annoorder;
 
-import com.ymbj.ordertest.autoconfig.annoorder.AutoConfigurationBean2;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import com.ymbj.ordertest.autoconfig.annoorderbean.AutoConfigurationAnnoBean2;
+import com.ymbj.ordertest.autoconfig.annoorderbean.AutoConfigurationAnnoBean22;
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
 
-@AutoConfigureOrder(Ordered.LOWEST_PRECEDENCE + 10)
+@AutoConfigureBefore(ZAnnoAutoConfiguration.class)
 @Configuration
-public class AutoConfiguration2 {
+public class AnnoAutoConfiguration2 {
+	public AnnoAutoConfiguration2() {
+		System.out.println("=========annoorder.AnnoAutoConfiguration2 Constructor============");
+	}
 	@Bean
-	public AutoConfigurationBean2 autoConfigurationBean2() {
-		System.out.println("=========annoorder.AutoConfigurationBean2============");
-		return new AutoConfigurationBean2();
+	public AutoConfigurationAnnoBean2 autoConfigurationAnnoBean2() {
+		System.out.println("=========annoorder.AutoConfigurationAnnoBean2============");
+		return new AutoConfigurationAnnoBean2();
+	}
+
+	@Bean
+	public AutoConfigurationAnnoBean22 autoConfigurationAnnoBean22() {
+		System.out.println("=========annoorder.AutoConfigurationAnnoBean22============");
+		return new AutoConfigurationAnnoBean22();
 	}
 }

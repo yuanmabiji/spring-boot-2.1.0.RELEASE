@@ -1,4 +1,4 @@
-package com.ymbj.autoconfig;
+package com.ymbj.ordertest.autoconfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

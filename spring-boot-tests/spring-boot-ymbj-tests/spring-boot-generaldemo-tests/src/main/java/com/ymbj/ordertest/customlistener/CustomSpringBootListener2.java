@@ -1,4 +1,4 @@
-package com.ymbj.customlistener;
+package com.ymbj.ordertest.customlistener;
 
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
 import org.springframework.context.ApplicationListener;

@@ -1,3 +1,12 @@
-# Auto Configure
+# 1，虽然配置顺序为ZAutoConfiguration，AutoConfiguration2，AutoConfiguration1，但是springboot加载到这些自动配置类后会进行一次自然排序，
+# 所以最终配置类的加载创建顺序为AutoConfiguration1，AutoConfiguration2，ZAutoConfiguration
+# 2，注意：InScanAutoConfiguration这个配置类因为跟MainApplication在同一个package下，所以能够被spring扫描到，因此加载创建是先于spring.factories的自动配置类
+# 3，利用@AutoConfigureOrder,@AutoConfigureBefore和@AutoConfigureAfter可以改变自动配置类的加载创建顺序
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.ymbj.ordertest.hellowolrd.autoconfig.HelloWorldEnableAutoConfiguration
+com.ymbj.autoconfig.naturalorder.ZAutoConfiguration,\
+com.ymbj.autoconfig.naturalorder.AutoConfiguration2,\
+com.ymbj.autoconfig.naturalorder.AutoConfiguration1,\
+com.ymbj.autoconfig.annoorder.ZAnnoAutoConfiguration,\
+com.ymbj.autoconfig.annoorder.AnnoAutoConfiguration2,\
+com.ymbj.autoconfig.annoorder.AnnoAutoConfiguration1,\
+com.ymbj.autoconfig.annoorder.AnnoAutoConfiguration3

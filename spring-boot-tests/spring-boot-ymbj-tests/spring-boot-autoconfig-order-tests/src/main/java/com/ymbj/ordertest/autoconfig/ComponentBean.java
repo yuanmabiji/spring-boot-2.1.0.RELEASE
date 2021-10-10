@@ -1,10 +1,10 @@
-package com.ymbj.componentscanpackage;
+package com.ymbj.ordertest.autoconfig;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class ComponentScanBean1 {
-	public ComponentScanBean1() {
-		System.out.println("=========ComponentScanBean1============");
+public class ComponentBean {
+	public ComponentBean() {
+		System.out.println("=========ComponentBean============");
 	}
 }
