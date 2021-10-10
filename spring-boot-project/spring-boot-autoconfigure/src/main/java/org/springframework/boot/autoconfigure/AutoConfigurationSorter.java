@@ -57,13 +57,13 @@ class AutoConfigurationSorter {
 		List<String> orderedClassNames = new ArrayList<>(classNames);
 		// Initially sort alphabetically
 		Collections.sort(orderedClassNames);
-		// Then sort by order
+		// Then sort by order 对@AutoConfigureOrder进行排序，其中getOrder()方法获取@AutoConfigureOrder的顺序数值
 		orderedClassNames.sort((o1, o2) -> {
 			int i1 = classes.get(o1).getOrder();
 			int i2 = classes.get(o2).getOrder();
 			return Integer.compare(i1, i2);
 		});
-		// Then respect @AutoConfigureBefore @AutoConfigureAfter
+		// Then respect @AutoConfigureBefore @AutoConfigureAfter  对@AutoConfigureBefore @AutoConfigureAfter进行排序
 		orderedClassNames = sortByAnnotation(classes, orderedClassNames);
 		return orderedClassNames;
 	}

@@ -493,7 +493,8 @@ public class AutoConfigurationImportSelector
 					.collect(Collectors.toCollection(LinkedHashSet::new));
 			// 移除掉要排除的自动配置类
 			processedConfigurations.removeAll(allExclusions);
-			// 对标注有@Order注解的自动配置类进行排序，
+			// 对标注有@AutoConfigureOrder，@AutoConfigureBefore @AutoConfigureAfter注解的自动配置类进行排序，
+			// 【注意】@AutoConfigureOrder，@AutoConfigureBefore @AutoConfigureAfter注解能改变spring.factories中的@Configuration的顺序，并不能决定@Configuration的bean的加载顺序。TODO 自己做个试验
 			return sortAutoConfigurations(processedConfigurations,
 					getAutoConfigurationMetadata())
 							.stream()
