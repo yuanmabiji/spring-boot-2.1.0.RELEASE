@@ -27,3 +27,4 @@ TODO:插件自动配置又是按照自然排序（没有@AutoConfigureOrder等�
 TODO:2,验证SqlSessionFactoryBean是在执行sql的情况下创建的，而不是@Autowire mapper时创建的；同时探索@Mapper的类是怎么加入spring容器的？
 TODO:3,按照自己总结的规律探索tcp插件自动配置类为何在先加载暴露端口，而Mybatis自动配置类在后呢？
 TODO:4,探究static关键字提升bean创建优先级？以及学习公众号A哥其他配置类的9篇文章
+TODO：5，项目内若优先需要创建插件类的某个bean，可以利用项目内的某个bean @DependsOn 插件内的某个bean，这样插件内的某个bean就会优先创建啦----利用这一特性在公司优先创建SsqlSessionFactoryBean
