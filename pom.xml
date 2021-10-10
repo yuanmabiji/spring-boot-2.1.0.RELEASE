@@ -28,7 +28,7 @@
 			<properties>
 				<spring-javaformat.version>0.0.6</spring-javaformat.version>
 			</properties>
-			<build>
+			<!--<build>
 				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
@@ -80,7 +80,7 @@
 						</executions>
 					</plugin>
 				</plugins>
-			</build>
+			</build>-->
 			<modules>
 				<module>spring-boot-project</module>
 				<!-- Samples are built via the invoker plugin -->
