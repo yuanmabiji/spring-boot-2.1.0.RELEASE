@@ -2,6 +2,8 @@ package com.ymbj.autoconfig.annoorder;
 
 import com.ymbj.ordertest.autoconfig.annoorderbean.AutoConfigurationAnnoBean1;
 import com.ymbj.ordertest.autoconfig.annoorderbean.AutoConfigurationAnnoBean11;
+import com.ymbj.ordertest.autoconfig.annoorderbean.XAutoConfigurationAnnoBean;
+import com.ymbj.ordertest.autoconfig.annoorderbean.YAutoConfigurationAnnoBean;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,20 @@ public class AnnoAutoConfiguration1 {
 	public AnnoAutoConfiguration1() {
 		System.out.println("=========annoorder.AnnoAutoConfiguration1 Constructor============");
 	}
+
+	@Bean
+	public XAutoConfigurationAnnoBean xAutoConfigurationAnnoBean() {
+		System.out.println("=========annoorder.XAutoConfigurationAnnoBean============");
+		return new XAutoConfigurationAnnoBean();
+	}
+
+	@Bean
+	public YAutoConfigurationAnnoBean yAutoConfigurationAnnoBean() {
+		System.out.println("=========annoorder.YAutoConfigurationAnnoBean============");
+		return new YAutoConfigurationAnnoBean();
+	}
+
+
 
 	@Bean
 	public AutoConfigurationAnnoBean1 autoConfigurationAnnoBean1() {

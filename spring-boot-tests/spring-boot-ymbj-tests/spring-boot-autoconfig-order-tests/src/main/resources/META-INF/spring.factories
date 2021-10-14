@@ -9,4 +9,6 @@ com.ymbj.autoconfig.naturalorder.AutoConfiguration1,\
 com.ymbj.autoconfig.annoorder.ZAnnoAutoConfiguration,\
 com.ymbj.autoconfig.annoorder.AnnoAutoConfiguration2,\
 com.ymbj.autoconfig.annoorder.AnnoAutoConfiguration1,\
-com.ymbj.autoconfig.annoorder.AnnoAutoConfiguration3
+com.ymbj.autoconfig.annoorder.AnnoAutoConfiguration3,\
+com.ymbj.autoconfig.annoorder.StaticInnerClassAutoConfiguration,\
+com.ymbj.autoconfig.annoorder.ZStaticInnerClassAutoConfiguration

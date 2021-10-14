@@ -489,7 +489,7 @@ public class SpringApplication {
 		// Load the sources
 		Set<Object> sources = getAllSources();
 		Assert.notEmpty(sources, "Sources must not be empty");
-		// TODO 这里加载的是什么bean?这里加载bean后，spring容器刷新过程中还会继续加载bean吗？
+		// QEESTION 这里加载的是什么bean?这里加载bean后，spring容器刷新过程中还会继续加载bean吗？ ANSWER:这里只将@SpringBootApplication注解标注的main启动类的beanDefinition注册到DefaultListableBeanFactory的beanDefinitionMap和beanDefinitionNames的集合哈，无他，然后在AbstractApplicationContext刷新容器的时候才真正加载所有的beanDefinition哈
 		load(context, sources.toArray(new Object[0]));
 		listeners.contextLoaded(context);
 	}

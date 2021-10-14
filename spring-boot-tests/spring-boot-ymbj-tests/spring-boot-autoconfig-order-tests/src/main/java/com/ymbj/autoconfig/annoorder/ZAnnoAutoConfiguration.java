@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.Ordered;
 
-@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
+@AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE + 1)
 @Configuration
 public class ZAnnoAutoConfiguration {
 	public ZAnnoAutoConfiguration() {
