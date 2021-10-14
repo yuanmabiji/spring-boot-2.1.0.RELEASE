@@ -6,7 +6,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 
-// 结论：full模式下，ConfigurationBean2的创建需要调用memberBean方法，此时再次调用memberBean方法会被代理，直接从spring容器取出memberBean即可，这就是和litem模式的区别
+// 结论：
+// 1,full模式下，ConfigurationBean2的创建需要调用memberBean方法，此时再次调用memberBean方法会被代理，
+//   直接从spring容器取出memberBean即可，这就是和litem模式的区别;
+
 @Configuration
 public class Configuration2 {
 	public Configuration2() {

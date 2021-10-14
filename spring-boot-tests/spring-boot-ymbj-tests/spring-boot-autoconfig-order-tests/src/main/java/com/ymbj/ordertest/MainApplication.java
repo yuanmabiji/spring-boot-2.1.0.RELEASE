@@ -9,12 +9,6 @@ import org.springframework.context.ApplicationContext;
 public class MainApplication {
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = SpringApplication.run(MainApplication.class, args);
-		System.out.println("=======================================================================");
-		System.out.println(applicationContext.getBean("liteBean"));
-		System.out.println(applicationContext.getBean("liteBean"));
-		System.out.println("=======================================================================");
-		System.out.println(applicationContext.getBean("configurationBean2"));
-		System.out.println(applicationContext.getBean("configurationBean2"));
 
 	}
 
