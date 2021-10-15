@@ -12,10 +12,15 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnProperty(prefix = "hello.world", matchIfMissing = false, value = {"name","age"})
 public class HelloWorldEnableAutoConfiguration {
 
-	/*// HelloWorldComponentProperties也可以通过@Autowired方式注入进来
+	/*// 【方式一】HelloWorldComponentProperties也可以通过@Autowired方式注入进来
 	@Autowired
 	private HelloWorldComponentProperties properties;*/
-
+	// 【方式二】HelloWorldComponentProperties也可以通过构造函数参数注入
+	private HelloWorldComponentProperties properties;
+	public HelloWorldEnableAutoConfiguration(HelloWorldComponentProperties properties) {
+		this.properties = properties;
+	}
+	// 【方式三】HelloWorldComponentProperties也可以通过bean方法参数注入
 	@Bean
 	public HelloWorldComponent helloWorldComponent(HelloWorldComponentProperties properties) {
 		return new HelloWorldComponent(properties.getName(), properties.getAge());

@@ -1,5 +1,7 @@
 package com.ymbj.ordertest.configurations;
 
+import com.ymbj.componentscanpackage.CustomFactoryBean;
+import com.ymbj.componentscanpackage.CustomFactoryBeanFactory;
 import com.ymbj.ordertest.configurations.beans.ConfigurationBean2;
 import com.ymbj.ordertest.configurations.beans.MemberBean;
 import org.springframework.context.annotation.Bean;
@@ -27,6 +29,17 @@ public class Configuration2 {
 		System.out.println("=========configurations.ConfigurationBean2============");
 		return new ConfigurationBean2(memberBean());
 	}
+
+	/*@Bean
+	public CustomFactoryBeanFactory customFactoryBeanFactory() {
+		return new CustomFactoryBeanFactory();
+	}
+
+	@Bean
+	public CustomFactoryBean customFactoryBean() {
+		return new CustomFactoryBean();
+	}*/
+
 
 
 }
