@@ -6,12 +6,13 @@ import com.ymbj.ordertest.configurations.beans.ConfigurationBean2;
 import com.ymbj.ordertest.configurations.beans.MemberBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.annotation.Order;
 
 // 结论：
 // 1,full模式下，ConfigurationBean2的创建需要调用memberBean方法，此时再次调用memberBean方法会被代理，
 //   直接从spring容器取出memberBean即可，这就是和litem模式的区别;
-
+@Import({CustomImportSelector.class, CustomDeferredImportSelector.class})
 @Configuration
 public class Configuration2 {
 	public Configuration2() {
