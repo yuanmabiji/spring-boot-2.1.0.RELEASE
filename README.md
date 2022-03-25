@@ -1,5 +1,11 @@
 【**源码笔记**】专注于Java后端系列框架的源码分析。若觉得源码分析文章不错，欢迎Star点亮哦。
 
+公众号：
+
+![img_1.png](https://common-ymbj.oss-cn-beijing.aliyuncs.com/wxgzh_qrcode.PNG)
+
+
+
 ================**SpringBoot源码专题持续更新中...**====================
 
 **本项目结合以下源码分析文章阅读或调试效果会更佳哦**
