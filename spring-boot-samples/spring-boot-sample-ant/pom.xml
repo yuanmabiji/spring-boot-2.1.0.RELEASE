@@ -14,7 +14,7 @@
 	<description>Spring Boot Ant Sample</description>
 	<properties>
 		<main.basedir>${basedir}/../..</main.basedir>
-		<ant.version>1.9.3</ant.version>
+		<ant.version>1.10.11</ant.version>
 	</properties>
 	<dependencies>
 		<!-- Compile -->
